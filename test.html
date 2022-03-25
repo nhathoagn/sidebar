@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="test-style.css">
+</head>
+
+<body>
+    <div class="new-content">
+        <div class="new-content-left">
+            <div class="new-logo">
+                <img src="img/logo.svg" alt="">
+            </div>
+            <div class="new-list-content">
+                <ul>
+                    <li><span class="iconify" data-icon="ant-design:dashboard-outlined"></span></li>
+                    <li><span class="iconify" data-icon="bxs:user"></span></li>
+                    <li><span class="iconify" data-icon="ant-design:shopping-cart-outlined"></span></li>
+                    <li class="child"><span class="iconify " data-icon="ant-design:line-chart-outlined"></span></li>
+                </ul>
+            </div>
+    
+        </div>
+       
+        </div>
+        <div class="sub-chart" >
+            <div class="sub-list-content">
+                <ul>
+                    <li class="new-list">
+                        <span><span class="iconify" data-icon="ant-design:line-outlined" data-width="20"
+                                data-height="20"></span>&nbsp;Echart</span>
+                    </li>
+                    <li class="new-list">
+                        <span><span class="iconify" data-icon="ant-design:bar-chart-outlined" data-width="20"
+                                data-height="20"></span>&nbsp;HighCharts</span>
+                    </li>
+                    <li class="new-list child">
+                        <span><span class="iconify" data-icon="ant-design:area-chart-outlined" data-width="20"
+                                data-height="20"></span>&nbsp;Rechartst</span>
+                    </li>
+                </ul>
+            </div>
+    </div>
+    <input type="button checkbox" value="">
+    <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+    <script>
+  
+var obj = document.getElementsByClassName('child')
+        obj[0].onmouseover = hover
+        obj[0].onmouseout = hover_out
+        function hover() {
+            let sub = document.getElementsByClassName('sub-chart')
+            sub[0].setAttribute("style", "opacity:1;")
+        }
+
+        function hover_out() {
+            let sub = document.getElementsByClassName('sub-chart')
+            sub[0].setAttribute("style", "opacity:0;")
+        }
+
+    </script>
+</body>
+
+</html>

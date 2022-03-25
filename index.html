@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body >
+    <div class="top">
+        
+        <div class="logo">
+            <div class="img-logo">
+                <img id="logo-svg" src="img/logo.svg" alt="">
+            </div>
+            <div class="text-logo">
+                <p>ANTD ADMINS</p>
+            </div>
+        
+        </div>
+        <div class="toggle" >
+          <div class="icon"> 
+             
+              <button id="btn" onclick="sub_menu()" ><i class="fa fa-outdent"></i></button>
+            </div>
+        </div>
+      
+    </div>
+  
+        
+     
+        
+    <div class="side-bar">
+        <div class="list">
+            <ul class="hover-ul">
+                <li class="list-item"><span class="iconify" data-icon="ant-design:dashboard-outlined"></span>&nbsp;&nbsp;Dashboard</li>
+                <li class="list-item"><span class="iconify" data-icon="bxs:user"></span>&nbsp;&nbsp;Users</li>
+                <li class="list-item"><span class="iconify" data-icon="ant-design:shopping-cart-outlined"></span>&nbsp;&nbsp;Posts</li>
+                <li class="child list-item" onclick="dropdown()"><span class="iconify " data-icon="ant-design:line-chart-outlined"></span>&nbsp;&nbsp;Charts&emsp;&emsp;&emsp;&emsp;&emsp;<span class="iconify" data-icon="ant-design:down-outlined"></span></li>
+               
+                    <div class="sub-list">
+                        <ul>
+                            <li class="new-list">
+                                <span><span class="iconify" data-icon="ant-design:line-outlined" data-width="20"
+                                        data-height="20"></span>&nbsp;Echart</span>
+                            </li>
+                            <li class="new-list">
+                                <span><span class="iconify" data-icon="ant-design:bar-chart-outlined" data-width="20"
+                                        data-height="20"></span>&nbsp;HighCharts</span>
+                            </li>
+                            <li class="new-list child">
+                                <span><span class="iconify" data-icon="ant-design:area-chart-outlined" data-width="20"
+                                        data-height="20"></span>&nbsp;Rechartst</span>
+                            </li>
+                        </ul>
+                    </div>
+                
+            </ul>
+            <div class="btn-toggle">
+                <label  class="switch">
+                    <input id="btn-dark" type="checkbox" onclick="dark_mode()">
+                    <span class="slider round"></span>
+                  </label>
+            </div>
+        </div>
+    </div>
+    <div class="new-content" style=" display: none;">
+        <div class="new-content-left">
+            
+            <div class="new-list-content">
+                <ul class="hover-ul-new">
+                    <li class="new-list-content-li"></li><span class="iconify" data-icon="ant-design:dashboard-outlined"></span></li>
+                    <li class="new-list-content-li"><span class="iconify" data-icon="bxs:user"></span></li>
+                    <li class="new-list-content-li"><span class="iconify" data-icon="ant-design:shopping-cart-outlined"></span></li>
+                    <li class="child-new-sidebar new-list-content-li"><span class="iconify " data-icon="ant-design:line-chart-outlined"></span></li>
+                </ul>
+            </div>
+    
+        </div>
+       
+        </div>
+        <div class="sub-chart" >
+            <div class="sub-list-content">
+                <ul class="chart-ul-sub">
+                    <li class="new-list-sub">
+                        <span><span class="iconify" data-icon="ant-design:line-outlined" data-width="20"
+                                data-height="20"></span>&nbsp;Echart</span>
+                    </li>
+                    <li class="new-list-sub">
+                        <span><span class="iconify" data-icon="ant-design:bar-chart-outlined" data-width="20"
+                                data-height="20"></span>&nbsp;HighCharts</span>
+                    </li>
+                    <li class="new-list-sub">
+                        <span><span class="iconify" data-icon="ant-design:area-chart-outlined" data-width="20"
+                                data-height="20"></span>&nbsp;Rechartst</span>
+                    </li>
+                </ul>
+            </div>
+    </div>
+    
+    <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+    <script>
+       
+        //  variable global
+        let show = document.querySelector('.new-content')
+        let hover_ul = document.querySelector('.hover-ul')
+        let hover_ul_new = document.querySelector('.hover-ul-new')
+        let hide_logo = document.querySelector('.logo')
+        let sub_chart = document.querySelector('.sub-chart')
+        let text_logo = document.querySelector('.text-logo')
+        let new_list_content_li = document.querySelector('.new-list-content-li')
+        let chart_ul = document.querySelector('.chart-ul')
+        let chart_ul_sub = document.querySelector('.chart-ul-sub')
+        
+
+
+        // 
+        // hover_ul.addEventListener("mouseover",function(event){
+        //             event.target.style.color = "#1890ff"
+        //     },false)
+        //     hover_ul.addEventListener("mouseout",function(event){
+        //                 event.target.style.color = "black"
+        //     },false)  
+        // dropdown
+        function dropdown(){
+            let down = document.querySelector('.child');
+            let sub_list = document.querySelector('.sub-list')
+            down.addEventListener("click", () =>{
+                sub_list.classList.toggle('hide-sub-list')
+               
+
+
+            })
+        }
+        // submenu
+        function sub_menu(){
+            let toggle = document.querySelector('.fa')
+            var side_bar = document.querySelector('.side-bar')
+            let img_logo = document.querySelector('.img-logo')
+            
+            let icon = document.querySelector('.icon')
+            let darkmode = document.getElementById("btn-dark")
+          
+          
+            let logo_svg = document.getElementById("logo-svg")
+            let toggle_class = document.querySelector('.toggle')
+             toggle.addEventListener("click",() =>{
+                if (side_bar.style.display === "none") {
+                    side_bar.style.display = "block"
+                    show.style.display = "none"
+                    // hide_logo.style.opacity = 0
+                    logo_svg.style.display = "44%"
+                    hide_logo.style.display = "flex"
+                    hide_logo.style.width = "17.1%"
+                    // hide_logo.style.width = "6.6%"
+                    text_logo.style.display = "block"
+                    logo_svg.style.width = "22%"
+                    logo_svg.style.marginLeft = "36%"
+                    text_logo.style.width = "100%"
+                    // logo_svg.style.marginLeft = "41%"
+                    // toggle_class.style.right = "0px"
+                   
+
+                } else {
+                side_bar.style.display = "none"
+                show.style.display = "block"
+                text_logo.style.display = "none"
+                darkmode.style.opacity = 1
+                logo_svg.style.marginLeft = "33%"
+                hide_logo.style.display = 1
+                toggle_class.style.right = "328px"
+                icon.style.left = "66px"
+                icon.style.bottom = "12px"
+                hide_logo.style.width = "6.1%"
+                text_logo.style.display = "none"
+                logo_svg.style.marginLeft = "41%"
+                logo_svg.style.width = "39%"
+                toggle_class.style.right = "78px"
+                img_logo.style.width = "100%"
+               
+                }
+                
+
+            })
+            
+        }
+
+
+        // sidebar2
+        let side_bar = document.querySelector('.side-bar')
+        let sub_new_side_bar = document.querySelector('.child-new-sidebar')
+        let new_list_sub = document.querySelector('.new-list-sub')
+        sub_new_side_bar.addEventListener("mouseover", function(event){
+            sub_chart.style.display = "block"
+        })
+        sub_new_side_bar.addEventListener("mouseout", function(event){
+            sub_chart.style.display = "none"
+        })
+        sub_chart.addEventListener("mouseover", function(event){
+            sub_chart.style.display = "block"
+            
+
+        })
+        sub_chart.addEventListener("mouseout", function(event){
+            sub_chart.style.display = "none"
+            
+        })
+        chart_ul_sub.addEventListener("mouseover", function(event){
+            event.target.style.color = "#1890ff"
+        })
+        chart_ul_sub.addEventListener("mouseout", function(event){
+            event.target.style.color = "black"
+        })
+        // darkmode
+       
+        function dark_mode(){
+              
+        let logo = document.querySelector('.logo')
+        let logo_svg = document.getElementById("logo-svg")
+        let list = document.querySelector(".list")
+        let darkmode = document.getElementById("btn-dark")
+        let tag_li = document.getElementsByTagName("li")
+        let list_item = document.querySelectorAll('.list-item')
+       
+        let new_content = document.querySelector('.new-content')
+       
+        let new_list_content = document.querySelector('.new-list-content')
+           if( (darkmode.checked == true) && new_content.style.display === "none"){
+               side_bar.style.backgroundColor = "black"
+                hover_ul.style.color = "#ffffff9c"
+            //    list_item.style.color = "#ffffff9c"
+               logo.style.backgroundColor = "black"
+               logo.style.width = "17.2%"
+               
+               hover_ul.addEventListener("mouseover",function(event){
+                        event.target.style.color = "white"
+               },false)
+               hover_ul.addEventListener("mouseout",function(event){
+                        event.target.style.color = "#ffffff9c"
+               },false)
+               show.style.backgroundColor = "black"
+               show.style.top = "70px"
+               show.style.left = "0px"
+               new_list_content.style.color = "#ffffff9c"
+               hide_logo.style.display = "flex"
+                    // hide_logo.style.width = "13%"
+                    // text_logo.style.display = "block"
+                    // logo_svg.style.marginLeft = "51%"
+                    // toggle_class.style.right = "0px"
+                hide_logo.style.width = "17.1%"
+                    // hide_logo.style.width = "6.6%"
+                text_logo.style.display = "block"
+                logo_svg.style.width = "22%"
+                logo_svg.style.marginLeft = "36%"
+                sub_chart.style.backgroundColor = "black"
+                chart_ul_sub.style.color ="#ffffff9c"
+                sub_chart.addEventListener("mouseover", function(event){
+                sub_chart.style.display = "block"
+                })
+                sub_chart.addEventListener("mouseout", function(event){
+                sub_chart.style.display = "none"
+            
+                })
+                chart_ul_sub.addEventListener("mouseover", function(event){
+                event.target.style.color = "white"
+                 })
+                 chart_ul_sub.addEventListener("mouseout", function(event){
+                event.target.style.color = "#ffffff9c"
+        })
+        //         chart_ul_sub.addEventListener("mouseover", function(event){
+        //         event.target.style.color = "white"
+        //          })
+        //          chart_ul_sub.addEventListener("mouseout", function(event){
+        //         event.target.style.color = "#ffffff9c"
+        // })
+
+           } else if(darkmode.checked == true && new_content.style.display === "block" ){
+                // logo.style.width = "6.2%"
+                // logo_svg.style.top = "24px"
+                // logo_svg.style.left = "18px"
+                hide_logo.style.display = "flex"
+                hide_logo.style.width = "20%"
+                text_logo.style.display = "block"
+                logo_svg.style.marginLeft = "51%"
+                toggle_class.style.right = "0px"
+                sub_chart.style.backgroundColor = "black"
+                chart_ul_sub.style.color ="#ffffff9c"
+                
+                
+                
+                
+                    
+
+           }
+           else{
+            side_bar.style.backgroundColor = "white"
+            new_content.style.backgroundColor = "white"
+            new_list_content_li.style.color = "black"
+            hover_ul.style.color = "black"
+            hover_ul_new.style.color = "black"
+            hover_ul.addEventListener("mouseover",function(event){
+                    event.target.style.color = "#1890ff"
+            },false)
+            hover_ul.addEventListener("mouseout",function(event){
+                        event.target.style.color = "black"
+            },false)
+            logo.style.backgroundColor = "white"
+            
+          
+           }
+       
+        }
+        
+        
+    </script>
+    
+
+</body>
+
+
+</html>
